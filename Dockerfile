@@ -2,7 +2,7 @@ FROM node:18-alpine as BUILD_IMAGE
 
 WORKDIR /app
 
-COPY package.json yarn.lock vite.config.js /app
+COPY package.json yarn.lock vite.config.ts /app
 
 RUN \
     --mount=type=cache,target=/var/cache/apt \
@@ -10,7 +10,7 @@ RUN \
 
 COPY . /app
 
-RUN yarn build
+RUN yarn install --ignore-engines
 
 FROM nginx:alpine
 COPY --from=BUILD_IMAGE /app/dist /usr/share/nginx/html
