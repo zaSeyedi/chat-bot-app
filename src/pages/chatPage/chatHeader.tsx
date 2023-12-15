@@ -13,7 +13,7 @@ const ChatHeader: React.FC<IProps> = ({ onclick }) => {
                 <Victory />
             </div>
             <div className='flex flex-col items-center justify-center'>
-                <Clock />
+                <Clock/>
                 <div>2:23</div>
             </div>
             <div className='flex flex-row items-center'>
