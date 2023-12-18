@@ -74,20 +74,23 @@ function ChatPage() {
   return (
     <ContainerLayout>
       <div className='h-full flex flex-col justify-between pb-6'>
-        <ChatHeader />
+        <ChatHeader onclick={() => socket.close()} />
         <div className='flex flex-col overflow-y-scroll'>
           <div className='overflow-y-scroll'>
             <div className="flex flex-col w-full p-6">
               {messages.map((message, index) => (
-                <div
-                  ref={messagesEndRef}
-                  className={`flex flex-col border p-3 w-fit mb-3 ${message.createdById === "student" ? 'self-end' : 'self-start'}`}>
-                  <Message
-                    key={index}
-                    text={message.text}
-                    createdAt={message.createdAt}
-                  />
+                <div className='flex flex-col items-start mb-3'>
+                  <div
+                    ref={messagesEndRef}
+                    className={`flex flex-col border p-3 w-fit ${message.createdById === "student" ? 'self-end' : 'self-start'}`}>
+                    <Message
+                      key={index}
+                      text={message.text}
+                    />
+                  </div>
+                  <div className='text-xs'>{message.createdAt}</div>
                 </div>
+
               ))}
               {isTyping &&
                 <div className="loadingio-spinner-ellipsis-im4lfyjrno"><div className="ldio-keytljv6rgj">
