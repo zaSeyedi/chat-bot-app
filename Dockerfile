@@ -13,7 +13,7 @@ COPY . /app
 RUN yarn build
 
 FROM nginx:alpine
-COPY --from=BUILD_IMAGE /app/dist /usr/share/nginx/html
+COPY --from=BUILD_IMAGE /app/build /usr/share/nginx/html
 COPY ./nginx.conf /etc/nginx/conf.d/default.conf
 
 EXPOSE 80
