@@ -7,7 +7,7 @@ import BotDetails from './pages/botDetails/botDetailsPage';
 function App() {
   return (
     <div className="App">
-      <BotDetails />
+      <ChatPage />
     </div>
   );
 }
