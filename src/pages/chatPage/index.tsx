@@ -6,6 +6,7 @@ import '../../styles/isTyping.css'
 import '../../styles/loading.css'
 import ContainerLayout from '../../layout/containerLayout';
 import ChatHeader from './chatHeader';
+import { getTime } from '../../helpers/getDateAndTime';
 
 const socket = io('http://78.157.46.108:3001');
 type MessageInfo = {
@@ -88,7 +89,7 @@ function ChatPage() {
                       text={message.text}
                     />
                   </div>
-                  <div className='text-xs'>{message.createdAt}</div>
+                  <div className='text-xs'>{getTime(message.createdAt)}</div>
                 </div>
 
               ))}
@@ -111,7 +112,7 @@ function ChatPage() {
           <div className="input-box w-full mt-2">
             <input
               className='border w-4/5 p-2'
-              type={lastMessageInfo?.numeric ? 'number' : 'text'}
+              type={!lastMessageInfo?.numeric ? 'number' : 'text'}
               value={messageText}
               onChange={(e) => setMessageText(e.target.value)}
               placeholder="Type your message..."

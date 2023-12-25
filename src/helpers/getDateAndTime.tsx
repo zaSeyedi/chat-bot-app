@@ -1,16 +1,8 @@
-import React from 'react';
-
-type MessageInfo = {
-    text: string;
-};
-
-const Message = ({ text }: MessageInfo) => {
+export function getTime(date: string) {
+    let time = new Date(date);
+    let hours = time.getUTCHours()
+    let minutes = time.getUTCMinutes()
     return (
-        <div className="">
-            <p className="">{text}</p>
-
-        </div>
+      `${hours}:${minutes}`
     );
-};
-
-export default Message;
+  }
