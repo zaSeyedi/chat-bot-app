@@ -10,7 +10,7 @@ RUN \
 
 COPY . /app
 
-RUN yarn install --ignore-engines
+RUN yarn build
 
 FROM nginx:alpine
 COPY --from=BUILD_IMAGE /app/dist /usr/share/nginx/html
