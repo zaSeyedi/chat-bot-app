@@ -41,7 +41,7 @@ function ChatPage() {
       messagesEndRef.current?.scrollIntoView({ behavior: "smooth" })
     });
     setLoading(false)
-    axios.get("http://78.157.46.108:8080/bot/view/بات-تست-عملکرد-رایمن-۲").then((data) => {
+    axios.get("http://78.157.46.108:8080/bot/view/تست").then((data) => {
       setPost(data.data.data);
     });
     console.log(messages)
@@ -112,7 +112,7 @@ function ChatPage() {
           <div className="input-box w-full mt-2">
             <input
               className='border w-4/5 p-2'
-              type={!lastMessageInfo?.numeric ? 'number' : 'text'}
+              type={lastMessageInfo?.numeric ? 'number' : 'text'}
               value={messageText}
               onChange={(e) => setMessageText(e.target.value)}
               placeholder="Type your message..."
